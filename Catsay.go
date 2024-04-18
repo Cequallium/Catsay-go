@@ -9,22 +9,23 @@ import (
 )
 
 func main() {
-	// check strings for err
+	// check input
 	args := os.Args[1:]
-	if len(args) == 0 || strings.Contains(strings.ToLower(args[0]), "help") {
+	// check for blank args or for help
+	if len(args) == 0 || strings.ToLower(args[0]) == "--help" {
 		helpMessage(0)
-	}
-	if len(args) != 2 {
+	} else if len(args) != 2 {
 		helpMessage(1)
 	}
 
 	phrase := args[0]
+	if phrase == "" {
+		helpMessage(3)
+	}
+
 	color, err := strconv.Atoi(args[1])
 	if err != nil || color > 8 {
 		helpMessage(2)
-	}
-	if phrase == "" {
-		helpMessage(3)
 	}
 
 	_, _ = Colorize(color).Printf("\n  /| ､\n (°､ ｡ 7  %v \n  |､  ~ヽ\n  じしf_,)〳\n", phrase)
@@ -34,6 +35,7 @@ func helpMessage(errType int) {
 	defer os.Exit(0)
 	var phrase = "Phrase"
 	var color = "Color (1 to 8)"
+
 	switch errType {
 	case 1:
 		phrase = c.RedString(phrase)
@@ -42,20 +44,25 @@ func helpMessage(errType int) {
 	case 2:
 		phrase = c.GreenString(phrase)
 		color = c.RedString(color)
-	default:
-
+	default: // Do not format if errType is anything else (generic error)
 	}
+
 	fmt.Printf(" Usage: catsay <%v> <%v>\n", phrase, color)
 	fmt.Print(" Colors: ")
+	// Contrast issues D:
 	_, _ = Colorize(9).Printf(" %d ", 1)
+
 	for i := 10; i <= 16; i++ {
 		_, _ = Colorize(i).Add(c.FgBlack).Printf(" %d ", i-8)
 	}
-	fmt.Println("")
+	fmt.Println("") // Just some whitespace
 }
 
 func Colorize(color int) *c.Color {
 	o := c.New()
+	// Yikes/
+	// TODO: maybe find a better way
+	// also these are constants so aleast i think it shouldn't have a large performance impact
 	switch color {
 	case 1:
 		o = o.Add(c.FgBlack)
