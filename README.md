@@ -1,15 +1,16 @@
-<h2> 
+<h2>
 
     Catsay-go
 
 </h2>
 
-<h4>    
+<h4>
 
-    Cowsay but for ~~cats~~gophers
+    Catsay but for gophers
 
 </h4>
-### Usage:
+
+### Usage
 
 ```bash
 $ catsay "meow~" 6
@@ -21,7 +22,7 @@ $ catsay "meow~" 6
 
 ```
 
-### Help:
+### Help
 
 ```bash
 $ catsay --help
@@ -31,15 +32,19 @@ $ catsay --help
 
 ```
 
-### Building:
+### Building
 
 ```bash
 $ git clone https://github.com/Cequallium/Catsay-go/
 $ go build
 ```
 
-#### Download:
+#### Download
 
-##### [Releases](https://github.com/Cequallium/Catsay/releases/latest)) > Download the latest release for your operating system
----
+<h6>
+
+[Releases](https://github.com/Cequallium/Catsay-go/releases/latest) > Download the latest release for your operating
+system
+</h6>
+
 <h4 align="center">💻🩵</h4>

@@ -60,7 +60,7 @@ func helpMessage(errType int) {
 
 func Colorize(color int) *c.Color {
 	o := c.New()
-	// Yikes/
+	// Yikes
 	// TODO: maybe find a better way
 	// also these are constants so aleast i think it shouldn't have a large performance impact
 	switch color {
