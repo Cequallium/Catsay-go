@@ -32,13 +32,18 @@ $ catsay --help
 
 ```
 
+### Install
+
+```bash
+  $ go install github.com/cequallium/Catsay-go
+```
+
 ### Building
 
 ```bash
 $ git clone https://github.com/Cequallium/Catsay-go/
 $ go build
 ```
-
 #### Download
 
 <h6>
@@ -46,5 +51,4 @@ $ go build
 [Releases](https://github.com/Cequallium/Catsay-go/releases/latest) > Download the latest release for your operating
 system
 </h6>
-
 <h4 align="center">💻🩵</h4>
